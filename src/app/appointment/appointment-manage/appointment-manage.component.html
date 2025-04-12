@@ -1,0 +1,88 @@
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Id
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Type
+                </th>
+                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-left" >
+                    QR
+                </th>
+                <th scope="col" class="px-6 py-3 text-left">
+                    DateTime
+                </th>
+
+                <th scope="col" class=" text-left px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Description
+                </th>
+                <th scope="col" class=" text-left px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="text-left px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Room Number
+                </th>
+                <th scope="col" class="px-6 py-3 text-left">
+                    Q_Number
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-center">
+                    Edit
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-center">
+                    Delete
+                </th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b border-gray-200 dark:border-gray-700" *ngFor="let appointments of appointmentsList">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800 text-left">
+                    {{appointments.id}}
+                </th>
+                <td class="px-6 py-4 text-left">
+                    {{appointments.type}}
+                </td>
+                <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800 text-left">
+                    {{appointments.qr}}
+                </td>
+                <td class="px-6 py-4 text-left">
+                    {{appointments.dateTime}}
+                </td>
+                <td class="px-6 py-4 text-left">
+                    {{appointments.description}}
+                </td>
+                <td class="px-6 py-4 text-left">
+                    {{appointments.status}}
+                </td>
+
+                <td class="px-6 py-4 text-center">
+                    {{appointments.roomNumber}}
+                </td>
+                <td class="px-6 py-4 text-center">
+                    {{appointments.q_Number}}
+                </td>
+                <td class="px-6 py-4 text-center">
+                    <button type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">
+                    <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
+                      </svg>
+                      </button>
+                </td>
+                <td class="px-6 py-4 text-center">
+                    <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15v3c0 .5523.44772 1 1 1h16c.5523 0 1-.4477 1-1v-3M3 15V6c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v9M3 15h18M8 15v4m4-4v4m4-4v4m-5.5061-7.4939L12 10m0 0 1.5061-1.50614M12 10l1.5061 1.5061M12 10l-1.5061-1.50614"/>
+                          </svg>
+                          </button>
+                </td>
+
+
+        </tbody>
+    </table>
+</div>
