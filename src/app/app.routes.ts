@@ -5,7 +5,7 @@ import { NotFountPageComponent } from './common/not-fount-page/not-fount-page.co
 
 export const routes: Routes = [
   {
-    path: 'patient',
+    path: 'patients',
     component: PatientRootComponent,
     children: [
       {
