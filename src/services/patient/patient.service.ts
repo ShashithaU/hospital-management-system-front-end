@@ -8,11 +8,16 @@ import { Patient } from "../../models/patient.model";
     providedIn: 'root'
 })
 export class PatientService {
+
     private apiUrl = `${environment.apiBaseUrl}/patient`;
 
     constructor(private http:HttpClient){}
 
     getAllPatients() :Observable<Patient[]> {
         return this.http.get<Patient[]>(`${this.apiUrl}/get-all`);
+    }
+
+    deletePatient(id:number){
+        this.http.delete(`${this.apiUrl}/delete-by-id/${id}`).subscribe(data => this.getAllPatients());
     }
 }
