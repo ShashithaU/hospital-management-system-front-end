@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Patient } from '../../../models/patient.model';
 import { PatientService } from '../../../services/patient/patient.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-patient',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './manage-patient.component.html',
   styleUrl: './manage-patient.component.css',
 })
@@ -42,4 +44,29 @@ export class ManagePatientComponent implements OnInit {
     this.patientService.deletePatient(id)
     this.loadPatients();
   }
+
+  selectedPatient:Patient={
+    id:0,
+    name: "" ,
+    nic: "",
+    address:"" ,
+    bloodGroup:"",
+    category: "" ,
+    gender: "",
+    contact: "",
+    note: "",
+    age: "",
+    allergies: "",
+   }
+
+  editPatient() : void{
+    this.patientService.editPatient(this.selectedPatient);
+  }
+
+  selectPatient(selectedPatient:Patient){
+    this.selectedPatient=selectedPatient;
+    console.log(this.selectedPatient.name)
+  }
+
+
 }

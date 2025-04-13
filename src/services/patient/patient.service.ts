@@ -20,4 +20,8 @@ export class PatientService {
     deletePatient(id:number){
         this.http.delete(`${this.apiUrl}/delete-by-id/${id}`).subscribe(data => this.getAllPatients());
     }
+
+    editPatient(patient:Patient){
+        this.http.put(`${this.apiUrl}/update`,patient).subscribe(data=>{"Patient updated"})
+    }
 }
