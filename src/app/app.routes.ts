@@ -3,6 +3,7 @@ import { ManagePatientComponent } from './patient/manage-patient/manage-patient.
 import { PatientRootComponent } from './patient/patient-root/patient-root.component';
 import { NotFountPageComponent } from './common/not-fount-page/not-fount-page.component';
 import { AddPatientComponent } from './patient/add-patient/add-patient.component';
+import { SearchPatientComponent } from './patient/search-patient/search-patient.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
       {
         path:"add-patient",
         component:AddPatientComponent
+      },
+      {
+        path:"get-patient-details",
+        component:SearchPatientComponent
       }
     ],
   },

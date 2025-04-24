@@ -1,0 +1,15 @@
+<div class="relative">
+    <mat-form-field class="w-full">
+      <input matInput 
+             [formControl]="searchControl"
+             [matAutocomplete]="auto"
+             placeholder="Search patients...">
+    </mat-form-field>
+  
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let patient of filteredPatients | async" [value]="patient">
+        {{ patient.name }}
+         ({{ patient.nic }})
+      </mat-option>
+    </mat-autocomplete>
+  </div>
