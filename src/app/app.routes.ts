@@ -19,38 +19,35 @@ export const routes: Routes = [
         component: ManagePatientComponent,
       },
       {
-        path:"add-patient",
-        component:AddPatientComponent
+        path: 'add-patient',
+        component: AddPatientComponent,
       },
       {
-        path:"get-patient-details",
-        component:SearchPatientComponent
-      }
+        path: 'get-patient-details',
+        component: SearchPatientComponent,
+      },
+    ],
+  },
+  {
+    path: 'appointment',
+    component: AppoimentRootComponent,
+    children: [
+      {
+        path: 'add-appointment',
+        component: AddAppoimentComponent,
+      },
+      {
+        path: 'details-appointment',
+        component: DetailsAppoimentComponent,
+      },
+      {
+        path: '',
+        component: DashboardAppoimentComponent,
+      },
     ],
   },
   {
     path: '**', //Catches unknown routes (404)
     component: NotFountPageComponent,
-  }
-  ,
-  {
-    path:"appointment",
-    component:AppoimentRootComponent,
-    children:[
-      {
-        path:"add-appointment",
-        component:AddAppoimentComponent,
-      }
-      ,
-      {
-        path:"details-appointment",
-        component:DetailsAppoimentComponent,
-
-      },
-      {
-        path:"",
-        component:DashboardAppoimentComponent
-      }
-    ]
-  }
+  },
 ];
