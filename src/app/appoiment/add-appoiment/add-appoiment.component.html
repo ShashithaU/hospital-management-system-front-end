@@ -1,12 +1,13 @@
 <div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
   <h2 class="text-2xl font-bold mb-6 text-gray-800">Add Appointment</h2>
-  <form class="space-y-4">
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" class="space-y-4">
     <!-- Type -->
     <div>
       <label for="type" class="block text-sm font-medium text-gray-700"
         >Type</label
       >
       <select
+        formControlName="type"
         id="type"
         name="type"
         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -16,54 +17,60 @@
         <option value="Follow-up">Follow-up</option>
         <option value="Emergency">Emergency</option>
       </select>
+      <div
+        *ngIf="submitted &&appointmentForm.get('type')?.errors?.['required']"
+        class="text-red-500 text-sm mt-1"
+      >
+        Type is required
+      </div>
     </div>
 
-    <!-- QR -->
-    <div>
-      <label for="qr" class="block text-sm font-medium text-gray-700">QR</label>
-      <input
-        type="text"
-        id="qr"
-        name="qr"
-        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-        placeholder="Enter QR code"
-      />
-    </div>
-
-    <!-- Date and Time -->
     <div>
       <label for="dateTime" class="block text-sm font-medium text-gray-700"
         >Date and Time</label
       >
       <input
+        formControlName="dateTime"
         type="datetime-local"
         id="dateTime"
         name="dateTime"
         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
       />
+      <div
+        *ngIf="submitted &&appointmentForm.get('dateTime')?.errors?.['required']"
+        class="text-red-500 text-sm mt-1"
+      >
+        Date and Time are required
+      </div>
     </div>
 
-    <!-- Description -->
     <div>
       <label for="description" class="block text-sm font-medium text-gray-700"
         >Description</label
       >
       <textarea
+        formControlName="description"
         id="description"
         name="description"
         rows="3"
         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         placeholder="Enter description"
       ></textarea>
+      <div
+        *ngIf="submitted &&appointmentForm.get('description')?.errors?.['required']"
+        class="text-red-500 text-sm mt-1"
+      >
+        Description is required
+      </div>
     </div>
 
-    <!-- Room Number and Queue Number -->
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label for="roomNumber" class="block text-sm font-medium text-gray-700"
           >Room Number</label
         >
         <select
+          formControlName="roomNumber"
           id="roomNumber"
           name="roomNumber"
           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -73,6 +80,12 @@
           <option value="102">102</option>
           <option value="103">103</option>
         </select>
+        <div
+          *ngIf="submitted &&appointmentForm.get('roomNumber')?.errors?.['required']"
+          class="text-red-500 text-sm mt-1"
+        >
+          Room Number is required
+        </div>
       </div>
 
       <div>
@@ -80,8 +93,9 @@
           >Queue Number</label
         >
         <select
-          id="qNumber"
-          name="qNumber"
+          formControlName="q_Number"
+          id="q_Number"
+          name="q_Number"
           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
         >
           <option value="" disabled selected>Select queue number</option>
@@ -89,22 +103,34 @@
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
+        <div
+          *ngIf="submitted &&appointmentForm.get('q_Number')?.errors?.['required']"
+          class="text-red-500 text-sm mt-1"
+        >
+          Queue Number is required
+        </div>
       </div>
     </div>
 
-    <!-- Status and Admin ID -->
     <div class="grid grid-cols-2 gap-4">
       <div>
         <label for="status" class="block text-sm font-medium text-gray-700"
           >Status</label
         >
         <input
+          formControlName="status"
           type="text"
           id="status"
           name="status"
           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
           placeholder="Enter status"
         />
+        <div
+          *ngIf="submitted &&appointmentForm.get('status')?.errors?.['required']"
+          class="text-red-500 text-sm mt-1"
+        >
+          Status is required
+        </div>
       </div>
 
       <div>
@@ -112,6 +138,7 @@
           >Admin ID</label
         >
         <select
+          formControlName="adminId"
           id="adminId"
           name="adminId"
           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -121,6 +148,31 @@
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
+        <div
+          *ngIf="submitted &&appointmentForm.get('adminId')?.errors?.['required']"
+          class="text-red-500 text-sm mt-1"
+        >
+          Admin ID is required
+        </div>
+      </div>
+    </div>
+
+    <!-- QR -->
+    <div>
+      <label for="qr" class="block text-sm font-medium text-gray-700">QR</label>
+      <input
+        formControlName="qr"
+        type="text"
+        id="qr"
+        name="qr"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="Enter QR code"
+      />
+      <div
+        *ngIf="submitted &&appointmentForm.get('qr')?.errors?.['required']"
+        class="text-red-500 text-sm mt-1"
+      >
+        QR code is required
       </div>
     </div>
 
