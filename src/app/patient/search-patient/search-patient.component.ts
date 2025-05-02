@@ -23,7 +23,7 @@ export class SearchPatientComponent {
   searchTerm = '';
   filteredPatients: any[] = [];
   apiUrl = 'http://localhost:8080/patient/search-by-name/';
-  selectedPatient: number = 0;
+  selectedPatient: any = '';
 
   constructor(private http: HttpClient) {}
 
@@ -39,7 +39,7 @@ export class SearchPatientComponent {
   }
 
   selectPatient(patient: any) {
-    this.selectPatient = patient.id;
+    this.selectedPatient = patient;
     this.searchTerm=patient.name;
     this.filteredPatients = [];
   }
