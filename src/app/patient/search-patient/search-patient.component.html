@@ -1,15 +1,18 @@
-<div class="relative">
-    <mat-form-field class="w-full">
-      <input matInput 
-             [formControl]="searchControl"
-             [matAutocomplete]="auto"
-             placeholder="Search patients...">
-    </mat-form-field>
-  
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let patient of filteredPatients | async" [value]="patient">
-        {{ patient.name }}
-         ({{ patient.nic }})
-      </mat-option>
-    </mat-autocomplete>
-  </div>
+<div class="grid grid-cols-1">
+  <input
+    type="text"
+    class="bg-blue-100 w-full rounded-md"
+    [(ngModel)]="searchTerm"
+    (input)="onSearch()"
+    placeholder="Enter Patient Name ..."
+  />
+  <ul class="m-0 p-0 rounded-sm">
+    <li
+      class="bg-gray-200 px-2 py-1 outline-1 hover:bg-gray-300 hover:cursor-pointer"
+      *ngFor="let patient of filteredPatients" (click)="selectPatient(patient)" 
+    >
+      {{ patient.name }}
+    </li>
+  </ul>
+</div>
+

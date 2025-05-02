@@ -2,43 +2,88 @@
   <div class="grid gap-6 mb-6 md:grid-cols-2">
     <!-- Full Name -->
     <div>
-      <label for="fullName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>
-      <input type="text" id="fullName" formControlName="fullName"
+      <label
+        for="fullName"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Full Name</label
+      >
+      <input
+        type="text"
+        id="fullName"
+        formControlName="fullName"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Saman" />
-      <div *ngIf="submitted && patientForm.get('fullName')?.errors" class="text-red-500 text-xs mt-1">
-        <div *ngIf="patientForm.get('fullName')?.errors?.['required']">Name is required</div>
+        placeholder="Saman"
+      />
+      <div
+        *ngIf="submitted && patientForm.get('fullName')?.errors"
+        class="text-red-500 text-xs mt-1"
+      >
+        <div *ngIf="patientForm.get('fullName')?.errors?.['required']">
+          Name is required
+        </div>
       </div>
     </div>
 
     <!-- NIC -->
     <div>
-      <label for="nic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIC</label>
-      <input type="text" id="nic" formControlName="nic"
+      <label
+        for="nic"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >NIC</label
+      >
+      <input
+        type="text"
+        id="nic"
+        formControlName="nic"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="000000V" />
-      <div *ngIf="submitted && patientForm.get('nic')?.errors" class="text-red-500 text-xs mt-1">
-        <div *ngIf="patientForm.get('nic')?.errors?.['required']">NIC is required</div>
+        placeholder="000000V"
+      />
+      <div
+        *ngIf="submitted && patientForm.get('nic')?.errors"
+        class="text-red-500 text-xs mt-1"
+      >
+        <div *ngIf="patientForm.get('nic')?.errors?.['required']">
+          NIC is required
+        </div>
       </div>
     </div>
 
-
-<!-- Age -->
+    <!-- Age -->
     <div>
-      <label for="nic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Age</label>
-      <input type="text" id="nic" formControlName="age"
+      <label
+        for="nic"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Age</label
+      >
+      <input
+        type="text"
+        id="nic"
+        formControlName="age"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="..age" />
-      <div *ngIf="submitted && patientForm.get('age')?.errors" class="text-red-500 text-xs mt-1">
-        <div *ngIf="patientForm.get('age')?.errors?.['required']">NIC is required</div>
+        placeholder="..age"
+      />
+      <div
+        *ngIf="submitted && patientForm.get('age')?.errors"
+        class="text-red-500 text-xs mt-1"
+      >
+        <div *ngIf="patientForm.get('age')?.errors?.['required']">
+          NIC is required
+        </div>
       </div>
     </div>
 
     <!-- Blood Group -->
     <div>
-      <label for="bloodGroup" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blood Group</label>
-      <select id="bloodGroup" formControlName="bloodGroup"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <label
+        for="bloodGroup"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Blood Group</label
+      >
+      <select
+        id="bloodGroup"
+        formControlName="bloodGroup"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
         <option value="">Choose a Blood Group</option>
         <option value="A+">A positive (A+)</option>
         <option value="A-">A negative (A-)</option>
@@ -53,9 +98,16 @@
 
     <!-- Patient Category -->
     <div>
-      <label for="patientCategory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Patient Category</label>
-      <select id="patientCategory" formControlName="patientCategory"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <label
+        for="patientCategory"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Patient Category</label
+      >
+      <select
+        id="patientCategory"
+        formControlName="patientCategory"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
         <option value="">Choose a Patient Category</option>
         <option value="Emergency">Emergency</option>
         <option value="Elective">Elective</option>
@@ -67,28 +119,61 @@
 
     <!-- Phone Number -->
     <div>
-      <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
-      <input type="tel" id="phone" formControlName="phone"
+      <label
+        for="phone"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Phone number</label
+      >
+      <input
+        type="tel"
+        id="phone"
+        formControlName="phone"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="123-45-678" />
-      <div *ngIf="submitted && patientForm.get('phone')?.errors" class="text-red-500 text-xs mt-1">
-        <div *ngIf="patientForm.get('phone')?.errors?.['required']">Phone number is required</div>
+        placeholder="123-45-678"
+      />
+      <div
+        *ngIf="submitted && patientForm.get('phone')?.errors"
+        class="text-red-500 text-xs mt-1"
+      >
+        <div *ngIf="patientForm.get('phone')?.errors?.['required']">
+          Phone number is required
+        </div>
       </div>
     </div>
 
     <!-- Gender -->
     <div>
       <div class="flex flex-wrap items-center">
-        <p class="me-3 text-sm font-medium text-gray-900 dark:text-white">Gender:</p>
+        <p class="me-3 text-sm font-medium text-gray-900 dark:text-white">
+          Gender:
+        </p>
         <div class="flex items-center me-4">
-          <input id="male-radio" type="radio" value="Male" formControlName="gender"
-            class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-          <label for="male-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
+          <input
+            id="male-radio"
+            type="radio"
+            value="Male"
+            formControlName="gender"
+            class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="male-radio"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Male</label
+          >
         </div>
         <div class="flex items-center me-4">
-          <input id="female-radio" type="radio" value="Female" formControlName="gender"
-            class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-          <label for="female-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
+          <input
+            id="female-radio"
+            type="radio"
+            value="Female"
+            formControlName="gender"
+            class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="female-radio"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >Female</label
+          >
         </div>
       </div>
     </div>
@@ -96,57 +181,113 @@
 
   <!-- Address -->
   <div class="mb-6">
-    <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-    <textarea id="address" rows="4" formControlName="address"
+    <label
+      for="address"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Address</label
+    >
+    <textarea
+      id="address"
+      rows="4"
+      formControlName="address"
       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="Type your Address here..."></textarea>
+      placeholder="Type your Address here..."
+    ></textarea>
   </div>
 
   <!-- Note -->
   <div class="mb-6">
-    <label for="note" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Note</label>
-    <textarea id="note" rows="4" formControlName="note"
+    <label
+      for="note"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Note</label
+    >
+    <textarea
+      id="note"
+      rows="4"
+      formControlName="note"
       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="Type your Note here..."></textarea>
+      placeholder="Type your Note here..."
+    ></textarea>
   </div>
 
-   <!--Allergies-->
-   <div class="mb-6">
-    <label for="note" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Allergies</label>
-    <textarea id="note" rows="4" formControlName="allergies"
+  <!--Allergies-->
+  <div class="mb-6">
+    <label
+      for="note"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Allergies</label
+    >
+    <textarea
+      id="note"
+      rows="4"
+      formControlName="allergies"
       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="Type your allergies here..."></textarea>
+      placeholder="Type your allergies here..."
+    ></textarea>
   </div>
 
   <!-- Email -->
   <div class="mb-6">
-    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
-    <input type="email" id="email" formControlName="email"
+    <label
+      for="email"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Email address</label
+    >
+    <input
+      type="email"
+      id="email"
+      formControlName="email"
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="john.doe@company.com" />
-    <div *ngIf="submitted && patientForm.get('email')?.errors" class="text-red-500 text-xs mt-1">
-      <div *ngIf="patientForm.get('email')?.errors?.['required']">Email is required</div>
-      <div *ngIf="patientForm.get('email')?.errors?.['email']">Please enter a valid email</div>
+      placeholder="john.doe@company.com"
+    />
+    <div
+      *ngIf="submitted && patientForm.get('email')?.errors"
+      class="text-red-500 text-xs mt-1"
+    >
+      <div *ngIf="patientForm.get('email')?.errors?.['required']">
+        Email is required
+      </div>
+      <div *ngIf="patientForm.get('email')?.errors?.['email']">
+        Please enter a valid email
+      </div>
     </div>
   </div>
 
   <!-- Terms Agreement -->
   <div class="mb-6">
     <div class="flex items-center">
-      <input id="termsAgreement" type="checkbox" formControlName="termsAgreement"
-        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-      <label for="termsAgreement" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#"
-          class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
+      <input
+        id="termsAgreement"
+        type="checkbox"
+        formControlName="termsAgreement"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <label
+        for="termsAgreement"
+        class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        >I agree with the
+        <a href="#" class="text-blue-600 hover:underline dark:text-blue-500"
+          >terms and conditions</a
+        >.</label
+      >
     </div>
-    <div *ngIf="submitted && patientForm.get('termsAgreement')?.errors" class="text-red-500 text-xs mt-1">
-      <div *ngIf="patientForm.get('termsAgreement')?.errors?.['requiredTrue']">You must agree to the terms</div>
+    <div
+      *ngIf="submitted && patientForm.get('termsAgreement')?.errors"
+      class="text-red-500 text-xs mt-1"
+    >
+      <div *ngIf="patientForm.get('termsAgreement')?.errors?.['requiredTrue']">
+        You must agree to the terms
+      </div>
     </div>
   </div>
 
   <!-- Submit Button -->
-  <button type="submit"
-    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+  <button
+    type="submit"
+    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+  >
     <span *ngIf="loading" class="inline-block animate-spin mr-2">↻</span>
-    +ADD Patient
+    Add Patient
   </button>
 </form>
