@@ -14,11 +14,11 @@ export class AppoimentService {
     return this.http.get<Appointment[]>(`${this.apiUrl}/view-all-appointments`);
   }
 
-  deleteappointment(id: number) {
-    this.http.delete(`${this.apiUrl}/delete-appointment/${id}`).subscribe();;
+  deletePatient(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete-appointment/${id}`)
   }
 
-  editAppointment(appoiment: Appointment) {
-    this.http.put(`${this.apiUrl}/update-appointment`,appoiment).subscribe();;
+  editAppointment(appoiment: Appointment): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update-appointment`,appoiment);
   }
 }
