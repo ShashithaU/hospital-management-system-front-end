@@ -12,9 +12,25 @@ import { Appointment } from '../../../models/appointment.model';
   styleUrl: './dashboard-appoiment.component.css',
 })
 export class DashboardAppoimentComponent implements OnInit {
-  appointment: Appointment[] = [];
+
+
+
+
+  appointments: Appointment[] = [];
   isLoading: Boolean = false;
   error: string = '';
+  selectedAppointment:Appointment = {
+    id: 0,
+    type: '',
+    qr: '',
+    dateTime: '',
+    description: '',
+    status: '',
+    roomNumber: 0,
+    q_Number: 0,
+    patientId: 0,
+    adminId: 0
+  }
 
   appointmentService = inject(AppoimentService);
 
@@ -26,7 +42,7 @@ export class DashboardAppoimentComponent implements OnInit {
     this.isLoading = true;
     this.appointmentService.getAllAppointment().subscribe(
       (data) => {
-        this.appointment = data;
+        this.appointments = data;
         this.isLoading = false;
       },
       (error) => {
@@ -36,4 +52,17 @@ export class DashboardAppoimentComponent implements OnInit {
       }
     );
   }
+
+  deleteappointment(id: number): void {
+    this.appointmentService.deleteappointment(id);
+    this.loadAppointment();
+  }
+
+  editAppointment() {
+   this.appointmentService.editAppointment(this.selectedAppointment)
+    }
+
+    selectAppointment(appoiment: Appointment) {
+      this.selectedAppointment=appoiment;
+      }
 }

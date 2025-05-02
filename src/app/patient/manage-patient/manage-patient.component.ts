@@ -7,11 +7,10 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-manage-patient',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './manage-patient.component.html',
   styleUrl: './manage-patient.component.css',
 })
-
 export class ManagePatientComponent implements OnInit {
   patients: Patient[] = [];
   isLoading = false;
@@ -41,32 +40,29 @@ export class ManagePatientComponent implements OnInit {
   }
 
   deletePatient(id: number): void {
-    this.patientService.deletePatient(id)
+    this.patientService.deletePatient(id);
     this.loadPatients();
   }
 
-  selectedPatient:Patient={
-    id:0,
-    name: "" ,
-    nic: "",
-    address:"" ,
-    bloodGroup:"",
-    category: "" ,
-    gender: "",
-    contact: "",
-    note: "",
-    age: "",
-    allergies: "",
-   }
+  selectedPatient: Patient = {
+    id: 0,
+    name: '',
+    nic: '',
+    address: '',
+    bloodGroup: '',
+    category: '',
+    gender: '',
+    contact: '',
+    note: '',
+    age: '',
+    allergies: '',
+  };
 
-  editPatient() : void{
+  editPatient(): void {
     this.patientService.editPatient(this.selectedPatient);
   }
 
-  selectPatient(selectedPatient:Patient){
-    this.selectedPatient=selectedPatient;
-    console.log(this.selectedPatient.name)
+  selectPatient(selectedPatient: Patient) {
+    this.selectedPatient = selectedPatient;
   }
-
-
 }

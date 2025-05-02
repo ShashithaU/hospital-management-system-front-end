@@ -13,4 +13,12 @@ export class AppoimentService {
   getAllAppointment(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.apiUrl}/view-all-appointments`);
   }
+
+  deleteappointment(id: number) {
+    this.http.delete(`${this.apiUrl}/delete-appointment/${id}`).subscribe();;
+  }
+
+  editAppointment(appoiment: Appointment) {
+    this.http.put(`${this.apiUrl}/update-appointment`,appoiment).subscribe();;
+  }
 }
