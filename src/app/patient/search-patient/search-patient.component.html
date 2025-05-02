@@ -8,23 +8,67 @@
   />
   <ul class="m-0 p-0 rounded-sm overflow-visible">
     <li
-      class="bg-gray-200 px-2 py-1 outline-1 hover:bg-gray-300 hover:cursor-pointer"
-      *ngFor="let patient of filteredPatients" (click)="selectPatient(patient)" 
+      class="bg-gray-200 px-2 py-1 outline-1 outline-slate-950 hover:bg-gray-300 hover:cursor-pointer"
+      *ngFor="let patient of filteredPatients"
+      (click)="selectPatient(patient)"
     >
       {{ patient.name }}
     </li>
   </ul>
 </div>
 
-<div *ngIf="selectedPatient.length!==0" class="w-full mt-4 p-4 bg-white shadow-md rounded-lg border border-gray-200">
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Name: <span class="font-normal text-gray-600">{{selectedPatient.name}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">NIC: <span class="font-normal text-gray-600">{{selectedPatient.nic}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Address: <span class="font-normal text-gray-600">{{selectedPatient.address}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Blood Group: <span class="font-normal text-gray-600">{{selectedPatient.bloodGroup}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Category: <span class="font-normal text-gray-600">{{selectedPatient.category}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Gender: <span class="font-normal text-gray-600">{{selectedPatient.gender}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Contact: <span class="font-normal text-gray-600">{{selectedPatient.contact}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Note: <span class="font-normal text-gray-600">{{selectedPatient.note}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Age: <span class="font-normal text-gray-600">{{selectedPatient.age}}</span></h5>
-  <h5 class="text-lg font-semibold text-gray-700 mb-2">Allergies: <span class="font-normal text-gray-600">{{selectedPatient.allergies}}</span></h5>
+<div
+  *ngIf="selectedPatient.length !== 0"
+  class="w-full mt-4 p-4 bg-white shadow-md rounded-lg border border-gray-200"
+>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Id:
+    <span class="font-normal text-gray-600">{{ selectedPatient.id }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Name:
+    <span class="font-normal text-gray-600">{{ selectedPatient.name }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    NIC:
+    <span class="font-normal text-gray-600">{{ selectedPatient.nic }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Address:
+    <span class="font-normal text-gray-600">{{ selectedPatient.address }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Blood Group:
+    <span class="font-normal text-gray-600">{{
+      selectedPatient.bloodGroup
+    }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Category:
+    <span class="font-normal text-gray-600">{{
+      selectedPatient.category
+    }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Gender:
+    <span class="font-normal text-gray-600">{{ selectedPatient.gender }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Contact:
+    <span class="font-normal text-gray-600">{{ selectedPatient.contact }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Note:
+    <span class="font-normal text-gray-600">{{ selectedPatient.note }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Age:
+    <span class="font-normal text-gray-600">{{ selectedPatient.age }}</span>
+  </h5>
+  <h5 class="text-lg font-semibold text-gray-700 mb-2">
+    Allergies:
+    <span class="font-normal text-gray-600">{{
+      selectedPatient.allergies
+    }}</span>
+  </h5>
 </div>

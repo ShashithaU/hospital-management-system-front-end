@@ -1,17 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import {
-  Observable,
-  debounceTime,
-  distinctUntilChanged,
-  switchMap,
-} from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Patient } from '../../../models/patient.model';
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-search-patient',
   standalone: true,
@@ -40,7 +31,7 @@ export class SearchPatientComponent {
 
   selectPatient(patient: any) {
     this.selectedPatient = patient;
-    this.searchTerm=patient.name;
+    this.searchTerm = patient.name;
     this.filteredPatients = [];
   }
 }
