@@ -1,1 +1,137 @@
-<p>add-appoiment works!</p>
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Add Appointment</h2>
+  <form class="space-y-4">
+    <!-- Type -->
+    <div>
+      <label for="type" class="block text-sm font-medium text-gray-700"
+        >Type</label
+      >
+      <select
+        id="type"
+        name="type"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+      >
+        <option value="" disabled selected>Select type</option>
+        <option value="Consultation">Consultation</option>
+        <option value="Follow-up">Follow-up</option>
+        <option value="Emergency">Emergency</option>
+      </select>
+    </div>
+
+    <!-- QR -->
+    <div>
+      <label for="qr" class="block text-sm font-medium text-gray-700">QR</label>
+      <input
+        type="text"
+        id="qr"
+        name="qr"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="Enter QR code"
+      />
+    </div>
+
+    <!-- Date and Time -->
+    <div>
+      <label for="dateTime" class="block text-sm font-medium text-gray-700"
+        >Date and Time</label
+      >
+      <input
+        type="datetime-local"
+        id="dateTime"
+        name="dateTime"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+      />
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label for="description" class="block text-sm font-medium text-gray-700"
+        >Description</label
+      >
+      <textarea
+        id="description"
+        name="description"
+        rows="3"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        placeholder="Enter description"
+      ></textarea>
+    </div>
+
+    <!-- Room Number and Queue Number -->
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label for="roomNumber" class="block text-sm font-medium text-gray-700"
+          >Room Number</label
+        >
+        <select
+          id="roomNumber"
+          name="roomNumber"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        >
+          <option value="" disabled selected>Select room number</option>
+          <option value="101">101</option>
+          <option value="102">102</option>
+          <option value="103">103</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="qNumber" class="block text-sm font-medium text-gray-700"
+          >Queue Number</label
+        >
+        <select
+          id="qNumber"
+          name="qNumber"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        >
+          <option value="" disabled selected>Select queue number</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Status and Admin ID -->
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label for="status" class="block text-sm font-medium text-gray-700"
+          >Status</label
+        >
+        <input
+          type="text"
+          id="status"
+          name="status"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Enter status"
+        />
+      </div>
+
+      <div>
+        <label for="adminId" class="block text-sm font-medium text-gray-700"
+          >Admin ID</label
+        >
+        <select
+          id="adminId"
+          name="adminId"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        >
+          <option value="" disabled selected>Select admin ID</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div>
+      <button
+        type="submit"
+        class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

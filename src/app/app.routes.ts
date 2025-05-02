@@ -41,7 +41,7 @@ export const routes: Routes = [
         component: DetailsAppoimentComponent,
       },
       {
-        path: '',
+        path: 'manage-all',
         component: DashboardAppoimentComponent,
       },
     ],
