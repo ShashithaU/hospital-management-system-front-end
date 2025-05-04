@@ -8,6 +8,7 @@ import { AppoimentRootComponent } from './appoiment/appoiment-root/appoiment-roo
 import { AddAppoimentComponent } from './appoiment/add-appoiment/add-appoiment.component';
 import { DetailsAppoimentComponent } from './appoiment/details-appoiment/details-appoiment.component';
 import { DashboardAppoimentComponent } from './appoiment/dashboard-appoiment/dashboard-appoiment.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
         component: SearchPatientComponent,
       },
     ],
+  },
+  {
+    path: 'register',
+    component: UserRegisterComponent,
   },
   {
     path: 'appointment',
