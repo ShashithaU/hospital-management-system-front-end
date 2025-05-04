@@ -9,6 +9,7 @@ import { AddAppoimentComponent } from './appoiment/add-appoiment/add-appoiment.c
 import { DetailsAppoimentComponent } from './appoiment/details-appoiment/details-appoiment.component';
 import { DashboardAppoimentComponent } from './appoiment/dashboard-appoiment/dashboard-appoiment.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,10 @@ export const routes: Routes = [
   {
     path: 'register',
     component: UserRegisterComponent,
+  },
+  {
+    path:"login",
+    component:UserLoginComponent
   },
   {
     path: 'appointment',

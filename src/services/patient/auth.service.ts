@@ -17,4 +17,10 @@ export class AuthService {
   login(credentials: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/signIn`, credentials);
   }
+
+  // Add this method to test if the interceptor works
+  testProtectedEndpoint(): Observable<any> {
+    // Replace with an actual protected endpoint from your API
+    return this.http.get(`${this.baseUrl}/user-details`);
+  }
 }

@@ -14,10 +14,12 @@ export class PatientService {
     constructor(private http:HttpClient){}
 
     getAllPatients() :Observable<Patient[]> {
+        console.log('Getting patients, token:', localStorage.getItem('token'));
         return this.http.get<Patient[]>(`${this.apiUrl}/get-all`);
     }
 
     deletePatient(id:number){
+        console.log('Getting patients, token:', localStorage.getItem('token'));
         this.http.delete(`${this.apiUrl}/delete-by-id/${id}`).subscribe(data => this.getAllPatients());
     }
 
