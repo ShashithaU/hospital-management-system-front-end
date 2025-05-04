@@ -26,6 +26,7 @@ export class DashboardAppoimentComponent implements OnInit {
     q_Number: 0,
     patientId: 0,
     adminId: 0,
+    email:'',
   };
 
   appointmentService = inject(AppoimentService);

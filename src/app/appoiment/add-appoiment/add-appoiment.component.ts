@@ -40,6 +40,7 @@ export class AddAppoimentComponent implements OnInit {
       q_Number: ['', [Validators.required]],
       // patientId: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       adminId: ['', [Validators.required]],
+      email:['',[Validators.required,Validators.email]]
     });
   }
   onSubmit() {
@@ -58,6 +59,7 @@ export class AddAppoimentComponent implements OnInit {
       q_Number: this.appointmentForm.value.q_Number,
       // patientId: this.appointmentForm.value.patientId,
       adminId: this.appointmentForm.value.adminId,
+      email:this.appointmentForm.value.email,
     };
 
     this.http.post(this.apiUrl, formData).subscribe({

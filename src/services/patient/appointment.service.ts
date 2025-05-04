@@ -21,4 +21,8 @@ export class AppoimentService {
   editAppointment(appoiment: Appointment): Observable<any> {
     return this.http.put(`${this.apiUrl}/update-appointment`,appoiment);
   }
+
+  searchAppointmentByDate(date:string):Observable<any>{
+    return this.http.get<Appointment[]>(`${this.apiUrl}/get-appointment-by-date/${date}`);
+  }
 }

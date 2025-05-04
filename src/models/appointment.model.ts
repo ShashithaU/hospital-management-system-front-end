@@ -9,4 +9,5 @@ export interface Appointment {
   q_Number: number;
   patientId: number;
   adminId: number;
+  email:string;
 }
