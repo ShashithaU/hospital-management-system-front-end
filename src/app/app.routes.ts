@@ -17,7 +17,7 @@ export const routes: Routes = [
     component: PatientRootComponent,
     children: [
       {
-        path: 'manage-all',
+        path: '',
         component: ManagePatientComponent,
       },
       {
@@ -31,7 +31,7 @@ export const routes: Routes = [
     ],
   },
   {
-    path: 'register',
+    path: '',
     component: UserRegisterComponent,
   },
   {
@@ -51,7 +51,7 @@ export const routes: Routes = [
         component: DetailsAppoimentComponent,
       },
       {
-        path: 'manage-all',
+        path: '',
         component: DashboardAppoimentComponent,
       },
     ],

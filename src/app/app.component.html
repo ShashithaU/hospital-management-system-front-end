@@ -1,3 +1,17 @@
-<app-nav-bar></app-nav-bar>
-<app-slide-bar></app-slide-bar>
-
+<!-- Only show navbar and sidebar if NOT on login/register pages -->
+<ng-container *ngIf="!isPublicRoute">
+    <app-nav-bar></app-nav-bar>
+    <!-- <div class="flex"> -->
+      <app-slide-bar></app-slide-bar>
+      <!-- <main class="flex-1"> -->
+        <!-- <router-outlet></router-outlet> -->
+      <!-- </main> -->
+    <!-- </div> -->
+  </ng-container>
+  
+  <!-- For login/register pages, show only the content -->
+  <ng-container *ngIf="isPublicRoute">
+    <main class="w-full">
+      <router-outlet></router-outlet>
+    </main>
+  </ng-container>

@@ -60,4 +60,10 @@ export class UserLoginComponent {
       });
     }
   }
+
+  registerUser(){
+    this.router.navigate(['/register']);
+  }
+
+
 }
