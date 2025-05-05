@@ -30,4 +30,8 @@ export class AuthService {
     alert('You have been successfully logged out');
     this.router.navigate(['/login']);
   }
+
+  getUserDetails(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user-details`);
+  }
 }
