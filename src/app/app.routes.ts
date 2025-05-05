@@ -10,8 +10,13 @@ import { DetailsAppoimentComponent } from './appoiment/details-appoiment/details
 import { DashboardAppoimentComponent } from './appoiment/dashboard-appoiment/dashboard-appoiment.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 export const routes: Routes = [
+  {
+    path:'dashboard',
+    component:DashboardComponent
+  },
   {
     path: 'patients',
     component: PatientRootComponent,
