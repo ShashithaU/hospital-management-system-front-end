@@ -1,21 +1,31 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../../services/patient/auth.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './user-login.component.html',
-  styleUrl: './user-login.component.css'
+  styleUrl: './user-login.component.css',
 })
 export class UserLoginComponent {
-
   loginForm: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -32,13 +42,17 @@ export class UserLoginComponent {
           console.log('Token received:', response.result.token);
           localStorage.setItem('token', response.result.token);
           // Verify token was stored
-        console.log('Stored token:', localStorage.getItem('token'));
-        // Make a test request to see if interceptor works
-        this.authService.testProtectedEndpoint().subscribe(
-          data => console.log('Protected data:', data)
-        );
+          console.log('Stored token:', localStorage.getItem('token'));
+          // Make a test request to see if interceptor works
+          this.authService
+            .testProtectedEndpoint()
+            .subscribe((data) => console.log('Protected data:', data));
           this.errorMessage = '';
-          alert('Login successful!');
+          Swal.fire({
+            title: 'Login successful!',
+            icon: 'success',
+          });
+          this.router.navigate(['/']);
         },
         error: (error) => {
           this.errorMessage = 'Invalid email or password.';
