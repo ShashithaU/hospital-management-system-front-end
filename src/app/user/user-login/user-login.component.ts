@@ -61,9 +61,7 @@ export class UserLoginComponent {
     }
   }
 
-  registerUser(){
+  registerUser() {
     this.router.navigate(['/register']);
   }
-
-
 }
