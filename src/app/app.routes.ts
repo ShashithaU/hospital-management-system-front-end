@@ -11,11 +11,15 @@ import { DashboardAppoimentComponent } from './appoiment/dashboard-appoiment/das
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { TestComponent } from './test/test/test.component';
+import { PrecriptionRootComponent } from './prescription/precription-root/precription-root.component';
+import { PrescriptionIssueComponent } from './prescription/prescription-issue/prescription-issue.component';
+import { PrescriptionSearchComponent } from './prescription/prescription-search/prescription-search.component';
 
 export const routes: Routes = [
   {
-    path:'dashboard',
-    component:DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
     path: 'patients',
@@ -40,8 +44,8 @@ export const routes: Routes = [
     component: UserRegisterComponent,
   },
   {
-    path:"login",
-    component:UserLoginComponent
+    path: 'login',
+    component: UserLoginComponent,
   },
   {
     path: 'appointment',
@@ -60,6 +64,28 @@ export const routes: Routes = [
         component: DashboardAppoimentComponent,
       },
     ],
+  },
+  {
+    path: 'prescription',
+    component: PrecriptionRootComponent,
+    children: [
+      {
+        path: '',
+        component: PrescriptionIssueComponent,
+      },
+      {
+        path: 'view-prescription',
+        component: PrescriptionIssueComponent,
+      },
+      {
+        path: 'search-prescription',
+        component: PrescriptionSearchComponent,
+      },
+    ],
+  },
+  {
+    path: 'test',
+    component: TestComponent,
   },
   {
     path: '**', //Catches unknown routes (404)

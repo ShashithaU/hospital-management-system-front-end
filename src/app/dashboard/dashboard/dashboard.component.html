@@ -1,496 +1,186 @@
-<!-- Main Dashboard -->
-<div class="p-4 bg-gray-50 dark:bg-gray-900 min-h-screen">
-    <!-- Welcome Banner -->
-    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg mb-6 p-6 text-white">
-      <div class="flex flex-col md:flex-row items-center justify-between">
+<div class="p-4">
+  <div class="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3">
+    <!-- Summary Cards -->
+    <div class="w-full px-4 py-5 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div class="flex items-center">
+        <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+          </svg>
+        </div>
         <div>
-          <h1 class="text-2xl font-bold">Welcome to Hospital Management Dashboard</h1>
-          <p class="text-blue-100">{{ currentDate | date:'fullDate' }} • {{ stats.hospitalName }}</p>
+          <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">Total Patients</p>
+          <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{totalPatients}}</p>
         </div>
-        <div class="mt-4 md:mt-0 flex space-x-2">
-          <button class="bg-white text-blue-600 px-4 py-2 rounded-md shadow hover:bg-blue-50 transition flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-              <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
-            </svg>
-            Hospital Overview
-          </button>
-          <button class="bg-transparent border border-white text-white px-4 py-2 rounded-md hover:bg-white hover:bg-opacity-20 transition flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
-            </svg>
-            Generate Reports
-          </button>
+      </div>
+      <div class="mt-4">
+        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">View all patients</a>
+      </div>
+    </div>
+    
+    <div class="w-full px-4 py-5 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div class="flex items-center">
+        <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+          </svg>
+        </div>
+        <div>
+          <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">Today's Appointments</p>
+          <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{todayAppointments}}</p>
+        </div>
+      </div>
+      <div class="mt-4">
+        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">View all appointments</a>
+      </div>
+    </div>
+    
+    <div class="w-full px-4 py-5 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div class="flex items-center">
+        <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <div>
+          <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">Available Doctors</p>
+          <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{availableDoctors}}</p>
+        </div>
+      </div>
+      <div class="mt-4">
+        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">View all doctors</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="grid grid-cols-1 gap-6 mb-8 lg:grid-cols-2">
+    <div class="min-w-0 p-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">Patient Statistics</h4>
+      <div class="h-64">
+        <!-- Chart would go here - placeholder for now -->
+        <div class="flex items-center justify-center h-full bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <p class="text-gray-500 dark:text-gray-400">Patient admissions chart</p>
+          <!-- add a chart -->
+            
         </div>
       </div>
     </div>
-  
-    <!-- Quick Stats -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border-b-4 border-blue-500">
-        <div class="p-5 flex items-center">
-          <div class="flex-shrink-0 bg-blue-500 rounded-full p-3">
-            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <div class="ml-5 w-0 flex-1">
-            <dl>
-              <dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Total Patients</dt>
-              <dd>
-                <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.totalPatients }}</div>
-                <div class="text-sm text-green-600 flex items-center">
-                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"></path>
-                  </svg>
-                  5.3% increase
-                </div>
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border-b-4 border-purple-500">
-        <div class="p-5 flex items-center">
-          <div class="flex-shrink-0 bg-purple-500 rounded-full p-3">
-            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <div class="ml-5 w-0 flex-1">
-            <dl>
-              <dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Today's Appointments</dt>
-              <dd>
-                <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.todayAppointments }}</div>
-                <div class="text-sm text-purple-600 flex items-center">
-                  {{ stats.confirmedAppointments }} confirmed
-                </div>
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border-b-4 border-green-500">
-        <div class="p-5 flex items-center">
-          <div class="flex-shrink-0 bg-green-500 rounded-full p-3">
-            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
-          </div>
-          <div class="ml-5 w-0 flex-1">
-            <dl>
-              <dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Available Doctors</dt>
-              <dd>
-                <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.availableDoctors }}/{{ stats.totalDoctors }}</div>
-                <div class="text-sm text-green-600 flex items-center">
-                  {{ stats.onCallDoctors }} on call
-                </div>
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg border-b-4 border-red-500">
-        <div class="p-5 flex items-center">
-          <div class="flex-shrink-0 bg-red-500 rounded-full p-3">
-            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <div class="ml-5 w-0 flex-1">
-            <dl>
-              <dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Emergency Cases</dt>
-              <dd>
-                <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.emergencyCases }}</div>
-                <div class="text-sm text-red-600 flex items-center">
-                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M12 13a1 1 0 100 2h5a1 1 0 001-1V9a1 1 0 10-2 0v2.586l-4.293-4.293a1 1 0 00-1.414 0L8 9.586 3.707 5.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0L11 9.414 14.586 13H12z" clip-rule="evenodd"></path>
-                  </svg>
-                  {{ stats.emergencyIncrease }}% increase
-                </div>
-              </dd>
-            </dl>
-          </div>
+    
+    <div class="min-w-0 p-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">Department Activity</h4>
+      <div class="h-64">
+        <!-- Chart would go here - placeholder for now -->
+        <div class="flex items-center justify-center h-full bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <p class="text-gray-500 dark:text-gray-400">Department activity chart</p>
         </div>
       </div>
     </div>
+  </div>
   
-    <!-- Middle Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-      <!-- Patient Stats Chart -->
-      <div class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-lg font-medium text-gray-900 dark:text-white">Patient Statistics</h2>
-          <div class="flex items-center space-x-2">
-            <button class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
-              Daily
-            </button>
-            <button class="text-blue-600 font-medium">
-              Weekly
-            </button>
-            <button class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
-              Monthly
-            </button>
-          </div>
-        </div>
-        <div class="h-72 bg-gray-50 dark:bg-gray-700 rounded-md p-4">
-          <!-- Chart placeholder - this would be a real chart in production -->
-          <div class="w-full h-full flex items-center justify-center">
-            <div class="text-center">
-              <p class="text-gray-500 dark:text-gray-400">Patient admissions/discharges chart would appear here</p>
-              <p class="mt-2 text-sm text-gray-400">Using a charting library like Chart.js or ApexCharts</p>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Resource Utilization -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Resource Utilization</h2>
-        
-        <div class="space-y-4">
-          <!-- Bed Occupancy -->
-          <div>
-            <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Bed Occupancy</span>
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ stats.bedOccupancy }}%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div class="bg-blue-600 h-2.5 rounded-full" [style.width]="stats.bedOccupancy + '%'"></div>
-            </div>
-          </div>
-          
-          <!-- ICU Capacity -->
-          <div>
-            <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">ICU Capacity</span>
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ stats.icuOccupancy }}%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div class="bg-red-600 h-2.5 rounded-full" [style.width]="stats.icuOccupancy + '%'"></div>
-            </div>
-          </div>
-          
-          <!-- Operating Rooms -->
-          <div>
-            <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Operating Rooms</span>
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ stats.orOccupancy }}%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div class="bg-green-600 h-2.5 rounded-full" [style.width]="stats.orOccupancy + '%'"></div>
-            </div>
-          </div>
-          
-          <!-- Staff Availability -->
-          <div>
-            <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Staff Availability</span>
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ stats.staffAvailability }}%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div class="bg-purple-600 h-2.5 rounded-full" [style.width]="stats.staffAvailability + '%'"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mt-6">
-          <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Critical Supplies</h3>
-          <div class="grid grid-cols-2 gap-2">
-            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-md text-center">
-              <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.bloodSupply }}%</div>
-              <div class="text-xs text-gray-500 dark:text-gray-400">Blood Supply</div>
-            </div>
-            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-md text-center">
-              <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.medicineSupply }}%</div>
-              <div class="text-xs text-gray-500 dark:text-gray-400">Medicine</div>
-            </div>
-            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-md text-center">
-              <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.oxygenSupply }}%</div>
-              <div class="text-xs text-gray-500 dark:text-gray-400">Oxygen</div>
-            </div>
-            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-md text-center">
-              <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ stats.ppeSupply }}%</div>
-              <div class="text-xs text-gray-500 dark:text-gray-400">PPE</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Appointments & Recent Activities -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-      <!-- Upcoming Appointments -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
-        <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-          <h2 class="text-lg font-medium text-gray-900 dark:text-white">Upcoming Appointments</h2>
-          <button class="text-sm text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 font-medium flex items-center">
-            View All
-            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-        </div>
-        <ul class="divide-y divide-gray-200 dark:divide-gray-700">
-          <li *ngFor="let appointment of upcomingAppointments" class="p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition duration-150">
-            <div class="flex items-center space-x-4">
-              <div class="flex-shrink-0">
-                <span class="inline-flex items-center justify-center h-10 w-10 rounded-full" 
-                  [ngClass]="{'bg-blue-100 text-blue-500': appointment.type === 'Check-up', 
-                             'bg-yellow-100 text-yellow-500': appointment.type === 'Follow-up',
-                             'bg-red-100 text-red-500': appointment.type === 'Emergency',
-                             'bg-green-100 text-green-500': appointment.type === 'Surgery'}">
-                  <span class="text-lg font-medium leading-none">{{ appointment.time.slice(0, 2) }}</span>
-                </span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">
-                  {{ appointment.patientName }}
-                </p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 truncate">
-                  {{ appointment.type }} • {{ appointment.doctor }}
-                </p>
-              </div>
-              <div class="inline-flex items-center text-sm font-medium text-blue-600">
-                <button class="p-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-700 transition-colors">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </li>
-          <!-- Show message if no appointments -->
-          <li *ngIf="upcomingAppointments.length === 0" class="p-4">
-            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">No upcoming appointments for today</p>
-          </li>
-        </ul>
-      </div>
-  
-      <!-- Recent Activities -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
-        <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-          <h2 class="text-lg font-medium text-gray-900 dark:text-white">Recent Activities</h2>
-          <div class="flex space-x-2">
-            <button class="px-3 py-1 text-xs font-medium rounded-full" 
-                    [ngClass]="{'bg-blue-100 text-blue-600': activityFilter === 'all', 'text-gray-500 hover:text-gray-700': activityFilter !== 'all'}"
-                    (click)="filterActivities('all')">All</button>
-            <button class="px-3 py-1 text-xs font-medium rounded-full"
-                    [ngClass]="{'bg-blue-100 text-blue-600': activityFilter === 'admissions', 'text-gray-500 hover:text-gray-700': activityFilter !== 'admissions'}"
-                    (click)="filterActivities('admissions')">Admissions</button>
-            <button class="px-3 py-1 text-xs font-medium rounded-full"
-                    [ngClass]="{'bg-blue-100 text-blue-600': activityFilter === 'discharges', 'text-gray-500 hover:text-gray-700': activityFilter !== 'discharges'}"
-                    (click)="filterActivities('discharges')">Discharges</button>
-          </div>
-        </div>
-        <div class="flow-root p-4">
-          <ul class="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-            <li *ngFor="let activity of recentActivities" class="py-4">
-              <div class="flex items-center space-x-3">
-                <div class="flex-shrink-0">
-                  <span class="inline-flex items-center justify-center h-8 w-8 rounded-full" 
-                        [ngClass]="{
-                          'bg-green-100 text-green-500': activity.status === 'Completed',
-                          'bg-yellow-100 text-yellow-500': activity.status === 'Pending',
-                          'bg-blue-100 text-blue-500': activity.status === 'In Progress'
-                        }">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                  </span>
-                </div>
-                <div class="min-w-0 flex-1">
-                  <p class="text-sm font-medium text-gray-900 dark:text-white truncate">
-                    {{ activity.patientName }} ({{ activity.patientId }})
-                  </p>
-                  <p class="text-sm text-gray-500 dark:text-gray-400 truncate">
-                    {{ activity.type }} • {{ activity.status }}
-                  </p>
-                </div>
-                <div class="text-right text-sm whitespace-nowrap text-gray-500 dark:text-gray-400">
-                  {{ activity.date | date:'short' }}
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Department Overview & Financial Summary -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-      <!-- Department Overview -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Department Overview</h2>
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+  <!-- Recent Activity Section -->
+  <div class="grid grid-cols-1 gap-6 mb-8">
+    <div class="min-w-0 p-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">Recent Activity</h4>
+      <div class="w-full overflow-hidden rounded-lg">
+        <div class="w-full overflow-x-auto">
+          <table class="w-full whitespace-no-wrap">
             <thead>
-              <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Department</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Patients</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Doctors</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+              <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <th class="px-4 py-3">Patient</th>
+                <th class="px-4 py-3">Type</th>
+                <th class="px-4 py-3">Date</th>
+                <th class="px-4 py-3">Status</th>
+                <th class="px-4 py-3">Actions</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-              <tr *ngFor="let dept of departments">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                  {{ dept.name }}
+            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+              <tr *ngFor="let activity of recentActivities" class="text-gray-700 dark:text-gray-400">
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
+                    <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                      <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                    </div>
+                    <div>
+                      <p class="font-semibold">{{activity.patientName}}</p>
+                      <p class="text-xs text-gray-600 dark:text-gray-400">{{activity.patientId}}</p>
+                    </div>
+                  </div>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                  {{ dept.patients }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                  {{ dept.doctors }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
-                        [ngClass]="{
-                          'bg-green-100 text-green-800': dept.status === 'Operational',
-                          'bg-yellow-100 text-yellow-800': dept.status === 'Busy',
-                          'bg-red-100 text-red-800': dept.status === 'Critical'
-                        }">
-                    {{ dept.status }}
+                <td class="px-4 py-3 text-sm">{{activity.type}}</td>
+                <td class="px-4 py-3 text-sm">{{activity.date | date:'short'}}</td>
+                <td class="px-4 py-3 text-sm">
+                  <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                    {{activity.status}}
                   </span>
+                </td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center space-x-4 text-sm">
+                    <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
+                      <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                      </svg>
+                    </button>
+                    <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
+                      <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                      </svg>
+                    </button>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-      
-      <!-- Financial Summary -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Financial Summary</h2>
-        <div class="grid grid-cols-2 gap-4 mb-4">
-          <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-            <div class="text-sm font-medium text-green-600 dark:text-green-400 mb-1">Revenue</div>
-            <div class="text-xl font-bold text-gray-900 dark:text-white">{{ finance.revenue | currency:'USD' }}</div>
-            <div class="text-xs text-green-600 dark:text-green-400 mt-1">↑ {{ finance.revenueGrowth }}%</div>
-          </div>
-          <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
-            <div class="text-sm font-medium text-red-600 dark:text-red-400 mb-1">Expenses</div>
-            <div class="text-xl font-bold text-gray-900 dark:text-white">{{ finance.expenses | currency:'USD' }}</div>
-            <div class="text-xs text-red-600 dark:text-red-400 mt-1">↑ {{ finance.expenseGrowth }}%</div>
-          </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="grid grid-cols-1 gap-6 mb-8 lg:grid-cols-4">
+    <div class="px-4 py-5 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-3 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+          </svg>
         </div>
-        
-        <div class="h-48 bg-gray-50 dark:bg-gray-700 rounded-md mb-4 p-2">
-          <div class="w-full h-full flex items-center justify-center">
-            <div class="text-center">
-              <p class="text-gray-500 dark:text-gray-400">Revenue vs Expenses Chart</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-          <div>Outstanding Invoices: <span class="font-medium text-gray-900 dark:text-white">{{ finance.outstandingInvoices }}</span></div>
-          <div>Avg. Receipt Time: <span class="font-medium text-gray-900 dark:text-white">{{ finance.avgReceiptDays }} days</span></div>
-        </div>
+        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">New Patient</p>
       </div>
     </div>
-  
-    <!-- Alert Center & Quick Actions -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <!-- Alert Center -->
-      <div class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow">
-        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
-          <h2 class="text-lg font-medium text-gray-900 dark:text-white">Alert Center</h2>
+    
+    <div class="px-4 py-5 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-3 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
         </div>
-        <div class="p-4">
-          <div *ngFor="let alert of alerts" class="mb-4 p-4 rounded-lg border-l-4"
-               [ngClass]="{
-                 'bg-red-50 border-red-500 dark:bg-red-900/20': alert.priority === 'High',
-                 'bg-yellow-50 border-yellow-500 dark:bg-yellow-900/20': alert.priority === 'Medium',
-                 'bg-blue-50 border-blue-500 dark:bg-blue-900/20': alert.priority === 'Low'
-               }">
-            <div class="flex">
-              <div class="flex-shrink-0">
-                <svg *ngIf="alert.priority === 'High'" class="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                </svg>
-                <svg *ngIf="alert.priority === 'Medium'" class="h-5 w-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <svg *ngIf="alert.priority === 'Low'" class="h-5 w-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <div class="ml-3">
-                <h3 class="text-sm font-medium"
-                    [ngClass]="{
-                      'text-red-800 dark:text-red-200': alert.priority === 'High',
-                      'text-yellow-800 dark:text-yellow-200': alert.priority === 'Medium',
-                      'text-blue-800 dark:text-blue-200': alert.priority === 'Low'
-                    }">
-                  {{ alert.title }}
-                </h3>
-                <div class="mt-2 text-sm"
-                     [ngClass]="{
-                       'text-red-700 dark:text-red-300': alert.priority === 'High',
-                       'text-yellow-700 dark:text-yellow-300': alert.priority === 'Medium',
-                       'text-blue-700 dark:text-blue-300': alert.priority === 'Low'
-                     }">
-                  <p>{{ alert.message }}</p>
-                </div>
-                <div class="mt-3 flex space-x-2">
-                  <button class="px-2 py-1.5 text-xs font-medium rounded"
-                         [ngClass]="{
-                           'bg-red-200 text-red-800 hover:bg-red-300 dark:bg-red-800 dark:text-red-100': alert.priority === 'High',
-                           'bg-yellow-200 text-yellow-800 hover:bg-yellow-300 dark:bg-yellow-800 dark:text-yellow-100': alert.priority === 'Medium',
-                           'bg-blue-200 text-blue-800 hover:bg-blue-300 dark:bg-blue-800 dark:text-blue-100': alert.priority === 'Low'
-                         }">
-                    Take Action
-                  </button>
-                  <button class="px-2 py-1.5 text-xs font-medium bg-white hover:bg-gray-100 text-gray-800 rounded border border-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600">
-                    Dismiss
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">New Appointment</p>
       </div>
-  
-      <!-- Quick Actions -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-        <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Quick Actions</h2>
-        <div class="grid grid-cols-2 gap-4">
-          <button class="flex flex-col items-center p-4 text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors dark:bg-blue-900/20 dark:text-blue-400 dark:hover:bg-blue-900/40">
-            <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-            </svg>
-            <span class="text-sm">New Patient</span>
-          </button>
-          <button class="flex flex-col items-center p-4 text-green-600 bg-green-50 rounded-lg hover:bg-green-100 transition-colors dark:bg-green-900/20 dark:text-green-400 dark:hover:bg-green-900/40">
-            <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            <span class="text-sm">Schedule</span>
-          </button>
-          <button class="flex flex-col items-center p-4 text-purple-600 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors dark:bg-purple-900/20 dark:text-purple-400 dark:hover:bg-purple-900/40">
-            <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-            <span class="text-sm">Reports</span>
-          </button>
-          <button class="flex flex-col items-center p-4 text-yellow-600 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors dark:bg-yellow-900/20 dark:text-yellow-400 dark:hover:bg-yellow-900/40">
-            <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
-            </svg>
-            <span class="text-sm">Inventory</span>
-          </button>
-          <button class="col-span-2 flex justify-center items-center p-4 text-indigo-600 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors dark:bg-indigo-900/20 dark:text-indigo-400 dark:hover:bg-indigo-900/40">
-            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-            </svg>
-            <span>Report Emergency</span>
-          </button>
+    </div>
+    
+    <div class="px-4 py-5 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-3 text-purple-500 bg-purple-100 rounded-full dark:text-purple-100 dark:bg-purple-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
         </div>
+        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">New Report</p>
+      </div>
+    </div>
+    
+    <div class="px-4 py-5 bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <div class="flex flex-col items-center justify-center">
+        <div class="p-3 mb-3 text-red-500 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Emergency Case</p>
       </div>
     </div>
   </div>
+</div>
+
