@@ -29,51 +29,35 @@ export class PrescriptionIssueComponent implements OnInit {
 
   initializeForm() {
     this.form = this.fb.group({
-     type: ['', [Validators.required]], // Add validators
-    dateTime: ['', [Validators.required]],
-    patientId: ['', [Validators.required]],
-    adminId: ['', [Validators.required]],
-    description: [''], // Optional field
-    patientStatus: ['', [Validators.required]],
-    status: ['', [Validators.required]],
+      type: ['', [Validators.required]], // Add validators
+      dateTime: ['', [Validators.required]],
+      patientId: ['', [Validators.required]],
+      adminId: ['', [Validators.required]],
+      description: [''], // Optional field
+      patientStatus: ['', [Validators.required]],
+      status: ['', [Validators.required]],
+      doctorId: ['', [Validators.required]],
     });
   }
-  
 
-  onsubmit() {
-  console.log('📋 Raw form values:', this.form.value);
-  
-  this.submitted = true;
-  
-  if (this.form.invalid) {
-    console.log('❌ Form is invalid:', this.form.errors);
-    
-    // Log which fields are invalid
-    Object.keys(this.form.controls).forEach(key => {
-      const control = this.form.get(key);
-      if (control?.invalid) {
-        console.log(`❌ Invalid field: ${key}`, control.errors);
-      }
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.loading = true;
+
+    this.http.post(this.apiUrl, this.form.value).subscribe({
+      next: (response) => {
+        this.loading = false;
+        this.form.reset();
+        this.submitted = false;
+      },
+      error: (error) => {
+        this.loading = false;
+      },
     });
-    return;
   }
-  
-  this.loading = true;
-
-  const formdata = { ...this.form.value }; // Simplified
-  console.log('📤 Sending data:', formdata);
-
-  this.http.post(this.apiUrl, formdata).subscribe({
-    next: (response) => {
-      console.log('✅ Success response:', response);
-      this.loading = false;
-      this.form.reset();
-      this.submitted = false;
-    },
-    error: (error) => {
-      console.log('❌ Error:', error);
-      this.loading = false;
-    },
-  });
-}
 }

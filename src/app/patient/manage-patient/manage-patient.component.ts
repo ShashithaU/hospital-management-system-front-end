@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './manage-patient.component.css',
 })
 export class ManagePatientComponent implements OnInit {
+[x: string]: any;
   patients: Patient[] = [];
   isLoading = false;
   error: string | null = null;

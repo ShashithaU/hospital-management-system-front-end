@@ -15,6 +15,7 @@ import { TestComponent } from './test/test/test.component';
 import { PrecriptionRootComponent } from './prescription/precription-root/precription-root.component';
 import { PrescriptionIssueComponent } from './prescription/prescription-issue/prescription-issue.component';
 import { PrescriptionSearchComponent } from './prescription/prescription-search/prescription-search.component';
+import { PrescriptionViewComponent } from './prescription/prescription-view/prescription-view.component';
 
 export const routes: Routes = [
   {
@@ -70,12 +71,12 @@ export const routes: Routes = [
     component: PrecriptionRootComponent,
     children: [
       {
-        path: '',
+        path: 'add-prescription',
         component: PrescriptionIssueComponent,
       },
       {
         path: 'view-prescription',
-        component: PrescriptionIssueComponent,
+        component: PrescriptionViewComponent,
       },
       {
         path: 'search-prescription',
