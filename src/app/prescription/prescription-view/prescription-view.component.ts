@@ -11,21 +11,13 @@ import { PrescriptionSearchComponent } from '../prescription-search/prescription
   styleUrl: './prescription-view.component.css',
 })
 export class PrescriptionViewComponent implements OnInit , OnChanges {
+
   ngOnInit(): void {
     this.loaddata();
   }
-  // ✅ Getter
-  get precriptions(): Precription[] {
-    return this.precriptions;
-  }
+  precriptions : Precription[] = []
 
-  // ✅ Setter - This will trigger every time the value changes
-  @Input() 
-  set precriptions(value: Precription[]) {
-    console.log("precriptions changed!", value?.length || 0, "items");
-    this.precriptions = value;
-    // this.onPrecriptionsChange(); // Custom method to handle changes
-  }
+  
 
   constructor(private http: HttpClient) {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -35,7 +27,7 @@ export class PrescriptionViewComponent implements OnInit , OnChanges {
     }
   }
 
-  precriptions: Precription[] = [];
+  // precriptions: Precription[] = [];
   isLoading: boolean = false;
   isError: boolean = false;
   apiUrl: string = 'http://localhost:8080/prescription/view-precriptions';
@@ -43,9 +35,14 @@ export class PrescriptionViewComponent implements OnInit , OnChanges {
   isShowAllResults: boolean = true;
 
   
+setprecriptions(responseData:Precription[]){
+  this.precriptions = responseData;
+  
+} 
 
   loaddata() {
     if (this.isShowAllResults) {
+      if(this.precriptions=[]){
       this.http.get<Precription[]>(this.apiUrl).subscribe({
         next: (response) => {
           this.isLoading = false;
@@ -57,6 +54,9 @@ export class PrescriptionViewComponent implements OnInit , OnChanges {
           console.log(error);
         },
       });
+    }}
+    else{
+      
     }
   }
 

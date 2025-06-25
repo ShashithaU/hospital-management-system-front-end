@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Precription } from '../../../models/prescription';
 
@@ -15,14 +15,16 @@ export class PrescriptionSearchComponent {
   @Output() messageEvent = new EventEmitter<Precription[]>();
 
  
-  searchTerm: string = 'Select Category';
+  @Input() searchTerm: string = 'Select Category';
+  @Output() changeSearchTerm = new EventEmitter<string>();
   serchInput: string = '';
-  searchResponse: Precription[] = [];
+  @Input() searchResponse: Precription[] = [];
 
   constructor(private http: HttpClient) {}
 
   setSearchName(searchTerm: string) {
     this.searchTerm = searchTerm;
+    this.serchTerm();
   }
 
   serchTerm() {
@@ -38,6 +40,7 @@ export class PrescriptionSearchComponent {
               next: (response: Precription[]) => {
                 this.searchResponse = response;
                 console.log(response);
+                this.changeSearchTerm.emit("Search By Doctor");
                     this.messageEvent.emit(this.searchResponse);
 
               },
@@ -53,6 +56,7 @@ export class PrescriptionSearchComponent {
               next: (response: Precription[]) => {
                 this.searchResponse = response;
                 console.log(response);
+                this.changeSearchTerm.emit("Search By Appointment");
                     this.messageEvent.emit(this.searchResponse);
 
               },
@@ -68,6 +72,7 @@ export class PrescriptionSearchComponent {
               next: (response: Precription[]) => {
                 this.searchResponse = response;
                 console.log(response);
+                this.changeSearchTerm.emit("Search By Date");
                     this.messageEvent.emit(this.searchResponse);
 
               },
@@ -83,6 +88,7 @@ export class PrescriptionSearchComponent {
               next: (response: Precription[]) => {
                 this.searchResponse = response;
                 console.log(response);
+                this.changeSearchTerm.emit("Search By Patient");
                     this.messageEvent.emit(this.searchResponse);
 
               },
